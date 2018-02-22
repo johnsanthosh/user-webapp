@@ -1,0 +1,29 @@
+<div class="well">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" ngModel required #fname="ngModel">
+      <span class="help-block" *ngIf="!fname.valid && fname.touched">Required Field</span>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" required ngModel class="form-control" #lName="ngModel"
+      >
+      <span *ngIf="!lName.valid && lName.touched" class="help-block">Required field.</span>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required ngModel class="form-control" #age="ngModel"
+      >
+      <span *ngIf="!age.valid && age.touched" class="help-block">Please enter a valid age.</span>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="number" id="phoneNumber" name="phoneNumber" required ngModel class="form-control" #number="ngModel"
+      >
+      <span *ngIf="!number.valid && number.touched" class="help-block">Please enter a valid phone number.</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </form>
+</div>
